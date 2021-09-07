@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[8]:
-
 
 # Importing required libraries
 import urllib
@@ -106,23 +101,5 @@ keywords = obj1.get_data()
 # Calling methods to create seperate csv files
 obj1.get_csv_links(keywords, 2)
 obj2.get_csv_stats(keywords)     
-
-
-# In[2]:
-
-
-obj1.css_id_result
-
-
-# In[7]:
-
-
-word = 'Około 221 wyników
-(0,29 s)'
-
-
-# In[ ]:
-
-
 
 
