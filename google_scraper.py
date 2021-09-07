@@ -38,7 +38,7 @@ class GoogleLinkScraper(GoogleScraper):
         for page in range(1, n_pages):
             
             # Creating a response object
-            response = self.session.get("http://www.google.com/search?q=site:https://www.searchenginejournal.com/" + ' ' + word + "&start=" + str((page - 1) * 10), headers=headers)
+            response = self.session.get("http://www.google.com/search?q=site:https://www.searchenginejournal.com/" + ' ' + word + "&start=" + str((page - 1) * 10))
             
             # Using provided css identifier to to retrieve desired element 
             results = response.html.find(self.css_id_result)
@@ -65,7 +65,7 @@ class GoogleStatsScraper(GoogleScraper):
     def get_stats(self, word):
     
         # Creating a response object
-        response = self.session.get("https://www.google.com//search?q=site:https://www.searchenginejournal.com/" + ' ' + word, headers=headers )
+        response = self.session.get("https://www.google.com//search?q=site:https://www.searchenginejournal.com/" + ' ' + word )
         
         # Using provided css identifier to to retrieve desired element 
         results = response.html.find(self.css_id_result)
@@ -87,7 +87,7 @@ class GoogleStatsScraper(GoogleScraper):
         my_list = []
         for word in keywords:
             for item in self.get_stats(word):
-                my_list.append(' ' + word + ':' + item)
+                my_list.append(' ' + word + ':' + ' ' + item)
 
         self.create_csv('stats.csv', my_list)
 
